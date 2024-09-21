@@ -7,6 +7,7 @@ function Stopwatch() {
   const [elapsedTime, setElapsedTime] = useState(0);
   const intervalRef = useRef(null);
   const startTimeRef = useRef(0);
+
   useEffect(() => {
     if (isRunning && !ispaused) {
       intervalRef.current = setInterval(() => {
@@ -16,11 +17,13 @@ function Stopwatch() {
     return () => {
       clearInterval(intervalRef.current);
     };
+
   }, [isRunning, ispaused]);
   function start() {
+    setElapsedTime(0);
     setIsRunning(true);
     setisPaused(false);
-    startTimeRef.current = Date.now() - elapsedTime;
+    startTimeRef.current = Date.now();
   }
   function pause() {
     setisPaused(true);
@@ -37,6 +40,7 @@ function Stopwatch() {
     setElapsedTime(0);
     setIsRunning(false);
     setisPaused(false);
+    clearInterval(intervalRef.current)
   }
 
   function formatTime() {
@@ -82,5 +86,3 @@ function Stopwatch() {
 }
 
 export default Stopwatch;
-
-

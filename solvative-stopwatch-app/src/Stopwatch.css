@@ -59,11 +59,11 @@ body {
     background-color: #1b7a31;
   }
   .pausebtn {
-    background-color: #ffc107;
+    background-color: #0f5202;
   }
   
   .pausebtn:hover {
-    background-color: #ffcd38;
+    background-color: #358308;
   }
   .stoptbtn {
     background-color: #6b0c15;
